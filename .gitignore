@@ -1,0 +1,11 @@
+# Ignore everything
+/*/
+QtProject.conf
+
+# Not these files
+!.gitignore
+
+# Except for the themes directories:
+!/alacritty
+!/awesome
+!/picom

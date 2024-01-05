@@ -1,0 +1,19 @@
+import:
+  # uncomment the flavour you want below:
+  - ~/.config/alacritty/catppuccin-frappe.yml
+
+window:
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is not scaled by
+  # DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 20
+    y: 20
+
+# Font configuration (changes require restart)
+font:
+  normal:
+    family: mono
+    style: Regular
+  size: 15.0
