@@ -19,6 +19,9 @@ sudo apt install awesome awesome-extra lightdm alacritty gedit chromium git
 #STEP Install other important tools
 sudo apt install picom xclip xbacklight flameshot pnmixer network-manager-gnome policykit-1-gnome rofi xfe htop curl build-essential
 
+#STEP create .config folder
+mkdir ~/.config
+
 #STEP Delete Empty Awesome, Alacritty, Picom folders
 rm -rf ~/.config/awesome
 rm -rf ~/.config/alacritty
