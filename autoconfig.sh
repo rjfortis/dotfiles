@@ -25,13 +25,13 @@ rm -rf ~/.config/alacritty
 rm -rf ~/.config/picom
 
 #STEP clone dotfiles repo in .config folder
-cd ~/.config
-git clone https://github.com/rjfortis/dotfiles.git .
+git clone https://github.com/rjfortis/dotfiles.git ~/dotfiles
+mv ~/dotfiles/{,.}* ~/.config
 
 #STEP replace bashrc config file
 mv ~/.bashrc ~/.bashrc_old
-cd ~
-git clone https://github.com/rjfortis/bashconfig.git .
+git clone https://github.com/rjfortis/bashconfig.git ~/bashconfig
+mv ~/bashconfig/{,.}* ~
 
 #STEP Install Nix Package manager
 sh <(curl -L https://nixos.org/nix/install) --daemon
