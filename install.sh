@@ -1,8 +1,6 @@
 #!/bin/bash
 
-
 #STEP Add non-free-firmware
-
 if grep -q "http://security.debian.org/debian-security bookworm-security main non-free-firmware" /etc/apt/sources.list; then
 	echo "/etc/apt/sources.list file is correct"
 else
@@ -40,13 +38,11 @@ mv ~/bashconfig/{,.}* ~
 
 
 #STEP Download and install Google Chrome
-
 wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O ~/chrome.deb
 sudo dpkg -i ~/chrome.deb
 
 
 #STEP Download and Install BRAVE
-
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
@@ -57,12 +53,31 @@ sudo apt install brave-browser
 
 
 #STEP Download and install VSCODE
-
 wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O ~/vscode.deb
 sudo dpkg -i ~/vscode.deb
 
 
 #STEP Install Nix Package manager
 # sh <(curl -L https://nixos.org/nix/install) --daemon
+
+
+while true; do
+
+        read -p "Do you want to install Nix Package Manager? (y/n) " yn
+
+        case $yn in
+                [yY] )
+                        echo Installing nix package manager;
+			sh <(curl -L https://nixos.org/nix/install) --daemon
+                        break;;
+                [nN] )
+                        echo Nix package manager will not be installed;
+                        break;;
+                * )
+                        echo invalid response;;
+        esac
+
+done
+
 
 
