@@ -14,7 +14,7 @@ fi
 sudo apt update && sudo apt upgrade
 
 #STEP Install WM and essential tools
-sudo apt install awesome awesome-extra lightdm alacritty gedit git curl build-essential
+sudo apt install awesome awesome-extra lightdm alacritty gedit git curl wget build-essential
 
 #STEP Install other important tools
 sudo apt install picom xclip xbacklight flameshot pnmixer network-manager-gnome policykit-1-gnome rofi xfe htop
@@ -39,6 +39,12 @@ git clone https://github.com/rjfortis/bashconfig.git ~/bashconfig
 mv ~/bashconfig/{,.}* ~
 
 
+#STEP Download and install Google Chrome
+
+wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O ~/chrome.deb
+sudo dpkg -i ~/chrome.deb
+
+
 #STEP Download and Install BRAVE
 
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -49,17 +55,11 @@ sudo apt update && sudo apt upgrade
 
 sudo apt install brave-browser
 
+
 #STEP Download and install VSCODE
 
 wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O ~/vscode.deb
-
 sudo dpkg -i ~/vscode.deb
-
-#STEP Download and install EDGE
-
-wget "https://go.microsoft.com/fwlink?linkid=2149051&brand=M102" -O ~/edge.deb
-sudo dpkg -i ~/edge.deb
-
 
 
 #STEP Install Nix Package manager
