@@ -41,6 +41,8 @@ mv ~/bashconfig/{,.}* ~
 wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O ~/chrome.deb
 sudo dpkg -i ~/chrome.deb
 
+sudo apt --fix-broken install
+
 
 #STEP Download and Install BRAVE
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -49,7 +51,23 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] http
 
 sudo apt update && sudo apt upgrade
 
-sudo apt install brave-browser
+while true; do
+
+        read -p "Do you want to install Brave browser? (y/n) " yn
+
+        case $yn in
+                [yY] )
+                        echo Installing Brave browser;
+			sudo apt install brave-browser
+                        break;;
+                [nN] )
+                        echo Brave browser will not be installed;
+                        break;;
+                * )
+                        echo invalid response;;
+        esac
+
+done
 
 
 #STEP Download and install VSCODE
@@ -80,4 +98,4 @@ while true; do
 done
 
 
-
+sudo reboot
